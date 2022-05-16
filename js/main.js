@@ -1,7 +1,21 @@
 import Card from './card.js'
 
+const startBtn = document.querySelector('#start')
+const screens = document.querySelectorAll('.screen')
+
+function startScreen() {
+    startBtn.addEventListener('click', (event) => {
+        event.preventDefault()
+        screens[0].classList.add('up')
+        newGame()
+    })
+}
+
+
+
 function newGame(container, cardsCount) {
-    //Создаем поле
+    startScreen()
+        //Создаем поле
     let cardsNumberArray = [],
         cardsArray = [],
         firstCard = null,
@@ -48,7 +62,7 @@ function newGame(container, cardsCount) {
             //Сброс
             setTimeout(() => {
                 let div = document.createElement('h1')
-                div.style.color = 'red'
+                div.classList.add('game-over')
                 div.textContent = 'GAME OVER'
                 container.append(div)
             }, 1000)
@@ -58,10 +72,13 @@ function newGame(container, cardsCount) {
                 cardsArray = []
                 firstCard = null
                 secondCard = null
-
-                newGame(container, cardsCount)
-
+                setInterval(function() {
+                    location.reload()
+                }, 2000);
+                // newGame(container, cardsCount)
+                // startScreen()
             }, 2000);
+
 
 
 

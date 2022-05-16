@@ -14,8 +14,9 @@ export default class Card {
                 action(this)
             }
 
-            this.clicks++;
-            document.getElementById('total').innerHTML = this.clicks
+            this.clicks
+            this.clicks++
+                document.getElementById('total').innerHTML = this.clicks
             console.log(this.clicks)
         })
 

@@ -10,15 +10,27 @@
     </head>
 
     <body>
-        <section class="main">
-            <div class="container">
-                <h1>Пары</h1>
-                <p>Попыток : <span id="total"></span></p>
-                <div class="wrapper">
-                    <div class="game" id="game"></div>
-                </div>
+
+        <div class="screen">
+            <div class="startScreen">
+
+                <h1 class="firstScreen"><span class="fast-flicker">И</span>гра<span class="flicker">&nbsp; в&nbsp;</span>пары</h1>
+                <button id="start" class="start"><span class="fast-flicker">СТАРТ</span></button>
             </div>
-        </section>
+
+        </div>
+        <div class="screen">
+            <section class="main">
+                <div class="container">
+                    <h2 class="header"><span class="fast-flicker">Найдите пары</span></h2>
+                    <p>Попыток : <span id="total"></span></p>
+                    <div class="wrapper">
+                        <div class="game" id="game"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <script defer type="module" src="/js/main.js"></script>
     </body>
 

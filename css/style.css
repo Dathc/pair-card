@@ -4,17 +4,212 @@
 
 body {
     margin: 0;
-    background: #48375d;
-    font-family: Arial, Verdana, sans-serif
+    background: #2d2c2e;
+    font-family: Arial, Verdana, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.firstScreen {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 62px;
+    /* color: white; */
+    margin-bottom: 80px;
+    /* background-image: radial-gradient(ellipse 50% 35% at 50% 50%, #cfbac2, transparent); */
+    /* transform: translate(-50%, -50%); */
+    /* letter-spacing: 2; */
+    text-transform: uppercase;
+    /* font-size: 6em; */
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #f3edf1, -0.2rem 0.1rem 1rem #f5eef2, 0.2rem 0.1rem 1rem #f1e5ec, 0 -0.5rem 2rem #f3edf0, 0 0.5rem 3rem #9f9b9d;
+    animation: shine 2s forwards, flicker 3s infinite;
+}
+
+@keyframes blink {
+    0%,
+    22%,
+    36%,
+    75% {
+        color: #f8f3f8;
+        text-shadow: 0 0 0.6rem #dbcbdb, 0 0 1.5rem #d6d4d5, -0.2rem 0.1rem 1rem #fbf5f8, 0.2rem 0.1rem 1rem #afaaad, 0 -0.5rem 2rem #e9e0e4, 0 0.5rem 3rem #efe1e7;
+    }
+    28%,
+    33% {
+        color: #f5eaf1;
+        text-shadow: none;
+    }
+    82%,
+    97% {
+        color: #f5ebef;
+        text-shadow: none;
+    }
+}
+
+.flicker {
+    animation: shine 2s forwards, blink 3s 2s infinite;
+}
+
+.fast-flicker {
+    animation: shine 2s forwards, blink 10s 1s infinite;
+}
+
+@keyframes shine {
+    0% {
+        color: #ffe6ff;
+        text-shadow: none;
+    }
+    100% {
+        color: #ffe6ff;
+        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #f4eaf0, -0.2rem 0.1rem 1rem #b1acaf, 0.2rem 0.1rem 1rem #ede4e9, 0 -0.5rem 2rem #d3cccf, 0 0.5rem 3rem #dbd0d5;
+    }
+}
+
+@keyframes flicker {
+    from {
+        opacity: 1;
+    }
+    4% {
+        opacity: 0.9;
+    }
+    6% {
+        opacity: 0.85;
+    }
+    8% {
+        opacity: 0.95;
+    }
+    10% {
+        opacity: 0.9;
+    }
+    11% {
+        opacity: 0.922;
+    }
+    12% {
+        opacity: 0.9;
+    }
+    14% {
+        opacity: 0.95;
+    }
+    16% {
+        opacity: 0.98;
+    }
+    17% {
+        opacity: 0.9;
+    }
+    19% {
+        opacity: 0.93;
+    }
+    20% {
+        opacity: 0.99;
+    }
+    24% {
+        opacity: 1;
+    }
+    26% {
+        opacity: 0.94;
+    }
+    28% {
+        opacity: 0.98;
+    }
+    37% {
+        opacity: 0.93;
+    }
+    38% {
+        opacity: 0.5;
+    }
+    39% {
+        opacity: 0.96;
+    }
+    42% {
+        opacity: 1;
+    }
+    44% {
+        opacity: 0.97;
+    }
+    46% {
+        opacity: 0.94;
+    }
+    56% {
+        opacity: 0.9;
+    }
+    58% {
+        opacity: 0.9;
+    }
+    60% {
+        opacity: 0.99;
+    }
+    68% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.9;
+    }
+    72% {
+        opacity: 0.95;
+    }
+    93% {
+        opacity: 0.93;
+    }
+    95% {
+        opacity: 0.95;
+    }
+    97% {
+        opacity: 0.93;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.start {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    border: none;
+    border-radius: 15px;
+    height: 40px;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 30px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.start:hover {
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale(2);
+}
+
+.screen {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    transition: margin 0.5s ease-out;
+}
+
+.screen.up {
+    margin-top: -100vh;
 }
 
 .container {
+    position: relative;
     max-width: 1200px;
     padding: 40px 40px;
     margin: 0 auto;
 }
 
-h1 {
+.header {
+    display: flex;
+    justify-content: center;
     color: white;
 }
 
@@ -37,7 +232,7 @@ h1 {
     margin-bottom: 10px;
     width: 115px;
     height: 160px;
-    background: #b03333;
+    background: #727172;
     color: transparent;
     font-size: 42px;
     font-weight: bold;
@@ -45,6 +240,7 @@ h1 {
     cursor: pointer;
     transition: transform 1s;
     transform: rotateY(180deg);
+    user-select: none;
 }
 
 .card:nth-child(9) {
@@ -57,12 +253,26 @@ h1 {
 
 .card.open {
     transition: transform 1s;
-    background: #30ade3;
+    background: #524d53;
     color: white;
     transform: rotateY(360deg);
 }
 
 .card.success {
-    background: #50b731;
+    background: #323032;
     transform: scale(0.95);
+}
+
+p {
+    color: white;
+}
+
+.game-over {
+    position: absolute;
+    top: 330px;
+    left: 90px;
+    right: 0;
+    bottom: 0;
+    font-size: 62px;
+    color: cadetblue;
 }
