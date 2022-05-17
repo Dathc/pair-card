@@ -5,6 +5,7 @@ export default class Card {
     constructor(container, number, action) {
         this.card = document.createElement('div')
         this.card.classList.add('card')
+        
         this.card.textContent = number
         this.number = number
         this.card.addEventListener('click', () => {
@@ -25,7 +26,8 @@ export default class Card {
 
     set open(value) {
         this._open = value
-        value ? this.card.classList.add('open') : this.card.classList.remove('open')
+        value ? this.card.classList.add('open'): this.card.classList.remove('open')
+        value ? this.card.classList.add('fast-flicker'): this.card.classList.remove('fast-flicker')
     }
     get open() {
         return this._open

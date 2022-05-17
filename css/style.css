@@ -23,9 +23,9 @@ body {
     /* letter-spacing: 2; */
     text-transform: uppercase;
     /* font-size: 6em; */
-    color: #ffe6ff;
-    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #f3edf1, -0.2rem 0.1rem 1rem #f5eef2, 0.2rem 0.1rem 1rem #f1e5ec, 0 -0.5rem 2rem #f3edf0, 0 0.5rem 3rem #9f9b9d;
-    animation: shine 2s forwards, flicker 3s infinite;
+    color: #f6f1f6;
+    text-shadow: 0 0 0.6rem #f6f1f6, 0 0 1.5rem #bbc1c7, -0.2rem 0.1rem 1rem #c6d2dd, 0.2rem 0.1rem 1rem #f1e5ec, 0 -0.5rem 2rem #f3edf0, 0 0.5rem 3rem #9f9b9d;
+    animation: flicker 3s infinite;
 }
 
 @keyframes blink {
@@ -34,7 +34,7 @@ body {
     36%,
     75% {
         color: #f8f3f8;
-        text-shadow: 0 0 0.6rem #dbcbdb, 0 0 1.5rem #d6d4d5, -0.2rem 0.1rem 1rem #fbf5f8, 0.2rem 0.1rem 1rem #afaaad, 0 -0.5rem 2rem #e9e0e4, 0 0.5rem 3rem #efe1e7;
+        text-shadow: 0 0 0.4rem #f6f1f6, 0 0 1.2rem #ebebeb, -0.2rem 0.1rem 1rem #fbf5f8, 0.2rem 0.1rem 1rem #afaaad, 0 -0.5rem 1rem #f6f1f6, 0 0.5rem 2rem #cfcfcf;
     }
     28%,
     33% {
@@ -49,23 +49,23 @@ body {
 }
 
 .flicker {
-    animation: shine 2s forwards, blink 3s 2s infinite;
+    animation: blink 3s 2s infinite;
 }
 
 .fast-flicker {
-    animation: shine 2s forwards, blink 10s 1s infinite;
+    animation: blink 10s 1s infinite;
 }
 
-@keyframes shine {
+/* @keyframes shine {
     0% {
         color: #ffe6ff;
         text-shadow: none;
     }
     100% {
         color: #ffe6ff;
-        text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #f4eaf0, -0.2rem 0.1rem 1rem #b1acaf, 0.2rem 0.1rem 1rem #ede4e9, 0 -0.5rem 2rem #d3cccf, 0 0.5rem 3rem #dbd0d5;
+        text-shadow: 0 0 0.4rem #f6f1f6, 0 0 1.2rem #f4eaf0, -0.2rem 0.1rem 1rem #b1acaf, 0.2rem 0.1rem 1rem #ede4e9, 0 -0.5rem 2rem #d3cccf, 0 0.5rem 3rem #dbd0d5;
     }
-}
+} */
 
 @keyframes flicker {
     from {
@@ -180,11 +180,12 @@ body {
     background-color: transparent;
     color: white;
     cursor: pointer;
+    transition:.2s ease-in-out;
 }
 
 .start:hover {
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    transform: scale(2);
+   
+    transform: scale(1.5);
 }
 
 .screen {
@@ -261,6 +262,7 @@ body {
 .card.success {
     background: #323032;
     transform: scale(0.95);
+    animation: flicker 3s infinite;
 }
 
 p {

@@ -7,7 +7,7 @@ function startScreen() {
     startBtn.addEventListener('click', (event) => {
         event.preventDefault()
         screens[0].classList.add('up')
-        newGame()
+        // newGame()
     })
 }
 
