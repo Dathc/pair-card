@@ -1,5 +1,5 @@
 import Card from './card.js'
-
+let clicks = 0
 const startBtn = document.querySelector('#start')
 const screens = document.querySelectorAll('.screen')
 
@@ -10,8 +10,6 @@ function startScreen() {
         // newGame()
     })
 }
-
-
 
 function newGame(container, cardsCount) {
     startScreen()
@@ -33,14 +31,16 @@ function newGame(container, cardsCount) {
     }
     //Логика
     function flip(card) {
-        if (firstCard !== null && secondCard !== null) {
+       
+       if (firstCard !== null && secondCard !== null) {
             if (firstCard.number != secondCard.number) {
                 firstCard.open = false
                 secondCard.open = false
                 firstCard = null
                 secondCard = null
             }
-        }
+              
+         }
         if (firstCard == null) {
             firstCard = card
         } else {
@@ -57,17 +57,34 @@ function newGame(container, cardsCount) {
             }
         }
 
-
+         clicks++
+            // document.getElementById('total').innerHTML = clicks
         if (document.querySelectorAll('.card.success').length == cardsNumberArray.length) {
             //Сброс
-            setTimeout(() => {
+            if (clicks <=12){
+                console.log('Круто!')
                 let div = document.createElement('h1')
                 div.classList.add('game-over')
-                div.textContent = 'GAME OVER'
-                container.append(div)
-            }, 1000)
+                div.textContent = ('Круто!')
+                 container.append(div)
+            }
+            if (clicks ==14){
+                console.log('Не плохо !')
+            }
+            if (clicks ==16){
+                console.log('Нужно больше тренироваться!')
+            }
+            if (clicks >16){
+                console.log('Очень плохо...')
+            }
+            // setTimeout(() => {
+            //     let div = document.createElement('h1')
+            //     div.classList.add('game-over')
+            //     div.textContent = clicks
+            //     container.append(div)
+            // }, 1000)
             setTimeout(() => {
-                container.innerHTML = ''
+                // container.innerHTML = ''
                 cardsNumberArray = []
                 cardsArray = []
                 firstCard = null
@@ -78,12 +95,7 @@ function newGame(container, cardsCount) {
                 // newGame(container, cardsCount)
                 // startScreen()
             }, 2000);
-
-
-
-
-
-        }
+         }
 
     }
 }

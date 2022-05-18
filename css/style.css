@@ -19,10 +19,9 @@ body {
     /* color: white; */
     margin-bottom: 80px;
     /* background-image: radial-gradient(ellipse 50% 35% at 50% 50%, #cfbac2, transparent); */
-    /* transform: translate(-50%, -50%); */
-    /* letter-spacing: 2; */
+    
     text-transform: uppercase;
-    /* font-size: 6em; */
+    
     color: #f6f1f6;
     text-shadow: 0 0 0.6rem #f6f1f6, 0 0 1.5rem #bbc1c7, -0.2rem 0.1rem 1rem #c6d2dd, 0.2rem 0.1rem 1rem #f1e5ec, 0 -0.5rem 2rem #f3edf0, 0 0.5rem 3rem #9f9b9d;
     animation: flicker 3s infinite;
@@ -55,17 +54,6 @@ body {
 .fast-flicker {
     animation: blink 10s 1s infinite;
 }
-
-/* @keyframes shine {
-    0% {
-        color: #ffe6ff;
-        text-shadow: none;
-    }
-    100% {
-        color: #ffe6ff;
-        text-shadow: 0 0 0.4rem #f6f1f6, 0 0 1.2rem #f4eaf0, -0.2rem 0.1rem 1rem #b1acaf, 0.2rem 0.1rem 1rem #ede4e9, 0 -0.5rem 2rem #d3cccf, 0 0.5rem 3rem #dbd0d5;
-    }
-} */
 
 @keyframes flicker {
     from {
@@ -270,11 +258,6 @@ p {
 }
 
 .game-over {
-    position: absolute;
-    top: 330px;
-    left: 90px;
-    right: 0;
-    bottom: 0;
     font-size: 62px;
-    color: cadetblue;
+    color: rgb(237, 245, 245);
 }
