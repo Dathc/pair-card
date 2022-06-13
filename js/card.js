@@ -1,7 +1,7 @@
 export default class Card {
     _open = false
     _success = false
-    // clicks = 0
+   
     constructor(container, number, action) {
         this.card = document.createElement('div')
         this.card.classList.add('card')
@@ -30,7 +30,7 @@ export default class Card {
     }
     set success(value) {
         this._success = value
-        value ? this.card.classList.add('success') : this.card.classList.remove('success')
+        value ? this.card.classList.add('success'): this.card.classList.remove('success')
     }
     get success() {
         return this._success

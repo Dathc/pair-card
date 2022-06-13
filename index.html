@@ -5,6 +5,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/style.css">
         <title>Pair game</title>
     </head>
@@ -13,16 +16,39 @@
 
         <div class="screen">
             <div class="startScreen">
-
-                <h1 class="firstScreen"><span class="fast-flicker">И</span>гра<span class="flicker">&nbsp; в&nbsp;</span>пары</h1>
+                <h1 class="firstScreen"><span class="fast-flicker">И</span>гра<span class="flicker">&nbsp;в&nbsp;</span>пары</h1>
                 <button id="start" class="start"><span class="fast-flicker">СТАРТ</span></button>
+                <div class="by "><span class="by_from">From </span>Nikolay Filkov</div>
             </div>
-
+        </div>
+        <div class="screen">
+           
+            <ul class="time-list" id="time-list">
+                <li>
+                    <h1 class="flicker2 menu">Выберите сложность</h1>
+                </li>
+                <li>
+                    <button class="time-btn flicker" data-time="7" cards="6">
+               Легко
+              </button>
+                    <li>
+                        <button class="time-btn fast-flicker" data-time="12" cards="8">
+                Нормально
+              </button>
+                    </li>
+                    <li>
+                        <button class="time-btn flicker" data-time="38" cards="18">
+                Тяжело
+              </button>
+                    </li>
+                    
+            </ul>
         </div>
         <div class="screen">
             <section class="main">
                 <div class="container">
                     <h2 class="header"><span class="fast-flicker">Найдите пары</span></h2>
+                    <h3 class="game-timer"><span id="time">00:00</span></h3>
                     <!-- <p>Попыток : <span id="total">0</span></p> -->
                     <div class="wrapper">
                         <div class="game" id="game"></div>

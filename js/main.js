@@ -1,18 +1,33 @@
 import Card from './card.js'
 let clicks = 0
+let time = 0
+let cards = 0
+let score = 0
 const startBtn = document.querySelector('#start')
+const timeList = document.querySelector('#time-list')
+const timeEl = document.querySelector('#time')
 const screens = document.querySelectorAll('.screen')
 
-function startScreen() {
-    startBtn.addEventListener('click', (event) => {
+startBtn.addEventListener('click', (event) => {
         event.preventDefault()
         screens[0].classList.add('up')
-        // newGame()
     })
-}
+
+
+timeList.addEventListener('click', event => {
+        if (event.target.classList.contains('time-btn')) {
+            time = parseInt(event.target.getAttribute('data-time'))
+            cards = parseInt(event.target.getAttribute('cards'))
+            screens[1].classList.add('up')
+            
+            newGame(document.getElementById('game'),cards)
+        }
+    })
+
 
 function newGame(container, cardsCount) {
-    startScreen()
+    setInterval(decreaseTime, 1000)
+    // startScreen()
         //Создаем поле
     let cardsNumberArray = [],
         cardsArray = [],
@@ -52,52 +67,36 @@ function newGame(container, cardsCount) {
             if (firstCard.number == secondCard.number) {
                 firstCard.success = true
                 secondCard.success = true
+                score++
                 firstCard = null
                 secondCard = null
             }
         }
-
-         clicks++
-            // document.getElementById('total').innerHTML = clicks
         if (document.querySelectorAll('.card.success').length == cardsNumberArray.length) {
-            //Сброс
-            if (clicks <=12){
-                console.log('Круто!')
-                let div = document.createElement('h1')
-                div.classList.add('game-over')
-                div.textContent = ('Круто!')
-                 container.append(div)
-            }
-            if (clicks ==14){
-                console.log('Не плохо !')
-            }
-            if (clicks ==16){
-                console.log('Нужно больше тренироваться!')
-            }
-            if (clicks >16){
-                console.log('Очень плохо...')
-            }
-            // setTimeout(() => {
-            //     let div = document.createElement('h1')
-            //     div.classList.add('game-over')
-            //     div.textContent = clicks
-            //     container.append(div)
-            // }, 1000)
-            setTimeout(() => {
-                // container.innerHTML = ''
-                cardsNumberArray = []
-                cardsArray = []
-                firstCard = null
-                secondCard = null
-                setInterval(function() {
-                    location.reload()
-                }, 2000);
-                // newGame(container, cardsCount)
-                // startScreen()
-            }, 2000);
-         }
-
+           console.log('game over')
+        }
     }
 }
+function decreaseTime() {
+    if (time === 0) {
+        finishGame()
+        console.log('time out')
+    } else {
+        let current = --time
+        if (current < 10) {
+            current = `0${current}`
+        }
+        setTime(current)
+    }
+}
+function setTime(value) {
+    timeEl.innerHTML = `00:${value}`
+}
+function finishGame() {
+    timeEl.parentNode.classList.add('hide')
+    game.innerHTML = `<h1 class="check">Найдено пар: <span class="primary">${score}</span></h1>`
 
-newGame(document.getElementById('game'), 8)
+    setInterval(function() {
+        location.reload()
+    }, 2000);
+}
